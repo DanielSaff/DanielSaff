@@ -1,7 +1,7 @@
 function [data] = load_activity_data()
 
 
-activites= ["Sit" "Stand" "Walk" "Stairs" "Bike" "Wheelchair" "Assessment"];
+activites= ["Sit" "Stand" "Walk" "Stairs" "Bike" "Wheelchair" "Assessment"]; %%must be equal to definitions in dir
 
 for I= 1:length(activites)
 
@@ -12,16 +12,16 @@ for I= 1:length(activites)
 
     for K = 1 : length(dinfo_activity)
         thisfilename = fullfile(dir_sit, dinfo_activity(K).name);  %directory of activity folder 
-
+        %%load accel files
         cd (thisfilename);
         listing=dir('*accel*');
         accel=readmatrix(listing.name);
-
+        %%load pressure files 
         listing=dir('*sensor*');
         pressure=readmatrix(listing.name);
 
-
-        data.(activites(I)){K}{1}{1}=accel(accel(:,2 )==1 , : );
+        %%separate left and right insole
+        data.(activites(I)){K}{1}{1}=accel(accel(:,2 )==1 , : ); 
         data.(activites(I)){K}{1}{2}=accel(accel(:,2 )==2 , : );
 
         data.(activites(I)){K}{2}{1}=pressure(pressure(:,2 )==1 , : );
