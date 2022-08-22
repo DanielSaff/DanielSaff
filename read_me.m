@@ -6,4 +6,6 @@
 %% Author: Daniel Saffertmüller
 
 %% The files contain comprehensive comments that should help to trace the code. 
-%% In general all starts with the *mlx function "ML_preprocessing" which calls lots of other functions. 
+%% In general all starts with the *mlx function "preparation_features" which calls lots of other functions. 
+%% Matlab version: R2021a
+%% Python version: 3.8.5 
