@@ -14,23 +14,20 @@ function  [full_load_both] = determine_full_load(dinfo_activity_full_load,dir_fu
         pressure_data_left=pressure(pressure(:,2 )==2 , : );
         
         %%build presure sum for right insole
-        for i=1:length(pressure_data_right)
-        all_sensors_right(i)=sum(pressure_data_right(i,4:15)); 
+        for i=4:15
+        all_sensors_right(i-3)=mean(pressure_data_right(:,i)); 
         end 
         
         %%build pressure sum for left insole 
-        for i=1:length(pressure_data_left)
-        all_sensors_left(i)=sum(pressure_data_left(i,4:15)); 
+        for i=4:15
+        all_sensors_left(i-3)=mean(pressure_data_left(:,i)); 
         end 
         
-        %%calculate mean value of right insole  
-        full_load_right=mean(all_sensors_right(:));
-        
-        %%calculate mean value of left insole  
-        full_load_left=mean(all_sensors_left(:)); 
-        
         %%calculate combined mean value 
-        full_load_both=(full_load_right+full_load_left)/2;
+        full_load_both(1,:)=all_sensors_right;
+        full_load_both(2,:)=all_sensors_left;
+        
+       
         
 end
 
