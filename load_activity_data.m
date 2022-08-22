@@ -38,6 +38,7 @@ for I= 1:length(activites)
         day= extractBetween(str,31,32);
         day=str2num(cell2mat(day));
         
+        %%correct time shift
         hour= extractBetween(str,34,35);
         if month==3 
             hour=str2num(cell2mat(hour))-1;
@@ -50,7 +51,9 @@ for I= 1:length(activites)
         
         second= extractBetween(str,38,39);
         second=str2num(cell2mat(second));
-       
+        
+        %create data vector
+         
         DateVector = [year,month,day,hour,minute,second];
         
         

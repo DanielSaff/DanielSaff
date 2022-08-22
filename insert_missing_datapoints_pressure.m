@@ -15,7 +15,7 @@ function [Pressure_data_insterted] = insert_missing_datapoints_pressure(Pressure
                             x=Pressure_data(i:i+1,3);
                             y=Pressure_data(i:i+1,c);
                             xq= round(Pressure_data(i,3) + ((Pressure_data(i+1,3) - Pressure_data(i,3))/2));
-                            insert_pressure(1,c)=interp1(x,y,xq);
+                            insert_pressure(1,c)=interp1(x,y,xq); %%linear interpolation
                             insert_pressure(1,3)=xq; 
                             insert_pressure(1,17)=Pressure_data(i,17);
                         end 

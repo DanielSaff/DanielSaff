@@ -15,7 +15,7 @@ function [Accel_data_insterted] = insert_missing_datapoints(Accel_data)
                             x=Accel_data(i:i+1,3);
                             y=Accel_data(i:i+1,c);
                             xq= round(Accel_data(i,3) + ((Accel_data(i+1,3) - Accel_data(i,3))/2));
-                            insert_accel(1,c)=interp1(x,y,xq);
+                            insert_accel(1,c)=interp1(x,y,xq); %%linear interpolation
                             insert_accel(1,3)=xq;   
                             insert_accel(1,7)=Accel_data(i,7);
                         end 
